@@ -2,22 +2,17 @@
 <html>
 <head>
   <title>Add client</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles.css">
 </head>
 <body>
-  <form method="post">
-    <p>Name:</p>
-    <label><input type="text" name="name"></label>
-
-    <p>Password:</p>
-    <label><input type="password" name="password"></label>
-
-    <p>Bank account number:</p>
-    <label><input type="text" name="bank"></label>
-
-    <p>Bank account balance:</p>
-    <label><input type="text" name="balance"></label>
-
-    <p><button type="submit" name="submit_btn">Add</button></p>
+<div class="form">
+  <form class="add-form" method="post">
+    <input type="text" name="name" placeholder="name">
+    <input type="password" name="password" placeholder="password">
+    <input type="text" name="bank" placeholder="bank account">
+    <input type="text" name="balance" placeholder="balance">
+    <button>add</button>
   </form>
+</div>
 </body>
 </html>

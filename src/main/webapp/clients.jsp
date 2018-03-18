@@ -4,9 +4,11 @@
 <html>
 <head>
   <title>Clients</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles.css">
 </head>
 <body>
-  <table border="1" width="500px" cellpadding="0" cellspacing="0">
+<div class="clients">
+  <table class="client-table" border="0" cellpadding="10" cellspacing="0">
     <tr>
       <th>id</th>
       <th>name</th>
@@ -26,5 +28,6 @@
       }
     %>
   </table>
+</div>
 </body>
 </html>
