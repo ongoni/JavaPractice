@@ -3,14 +3,21 @@
     "id": 1,
     "name": "Лупа",
     "password": "ПолучилЗаПупу",
-    "bankAccountNumber": 1,
+    "bankAccountNumber": "69193842",
     "bankAccountBalance": 10000.0
   },
   {
     "id": 2,
     "name": "Пупа",
     "password": "ПолучилЗаЛупу",
-    "bankAccountNumber": 2,
+    "bankAccountNumber": "57127381",
     "bankAccountBalance": 0.0
+  },
+  {
+    "id": 3,
+    "name": "Мужик",
+    "password": "ОнаМнеКакРаз",
+    "bankAccountNumber": "65182939",
+    "bankAccountBalance": 5000.0
   }
 ]
