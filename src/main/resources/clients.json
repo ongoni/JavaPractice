@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Лупа",
+    "password": "ПолучилЗаПупу",
+    "bankAccountNumber": 1,
+    "bankAccountBalance": 10000.0
+  },
+  {
+    "id": 2,
+    "name": "Пупа",
+    "password": "ПолучилЗаЛупу",
+    "bankAccountNumber": 2,
+    "bankAccountBalance": 0.0
+  }
+]

@@ -21,6 +21,16 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <servlet-mapping>
         <servlet-name>ShowClientsServlet</servlet-name>
-        <url-pattern>/clients</url-pattern>
+        <url-pattern>/client/all</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddClientServlet</servlet-name>
+        <servlet-class>com.ongoni.servlets.AddClientServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddClientServlet</servlet-name>
+        <url-pattern>/client/add</url-pattern>
     </servlet-mapping>
 </web-app>
