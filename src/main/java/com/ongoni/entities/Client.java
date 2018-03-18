@@ -7,12 +7,12 @@ public class Client {
     protected int id;
     protected String name;
     protected String password;
-    protected int bankAccountNumber;
+    protected String bankAccountNumber;
     protected double bankAccountBalance;
 
     public Client() { }
 
-    public Client(int id, String name, String password, int bankAccountNumber, double bankAccountBalance) {
+    public Client(int id, String name, String password, String bankAccountNumber, double bankAccountBalance) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -55,11 +55,11 @@ public class Client {
         return this;
     }
 
-    public int getBankAccountNumber() {
+    public String getBankAccountNumber() {
         return bankAccountNumber;
     }
 
-    public Client setBankAccountNumber(int bankAccountNumber) {
+    public Client setBankAccountNumber(String bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;
         return this;
     }

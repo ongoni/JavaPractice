@@ -17,7 +17,7 @@ public class AddClientServlet extends HttpServlet {
                 Client.getNextAllowedId(),
                 req.getParameter("name"),
                 req.getParameter("password"),
-                Integer.parseInt(req.getParameter("bank")),
+                req.getParameter("bank"),
                 Double.parseDouble(req.getParameter("balance"))
         ));
 

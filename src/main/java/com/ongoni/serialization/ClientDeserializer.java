@@ -14,7 +14,7 @@ public class ClientDeserializer implements JsonDeserializer<Client> {
                 .setId(jsonObject.get("id").getAsInt())
                 .setName(jsonObject.get("name").getAsString())
                 .setPassword(jsonObject.get("pass").getAsString())
-                .setBankAccountNumber(jsonObject.get("bank_account").getAsInt())
+                .setBankAccountNumber(jsonObject.get("bank_account").getAsString())
                 .setBankAccountBalance(jsonObject.get("balance").getAsDouble());
     }
 
