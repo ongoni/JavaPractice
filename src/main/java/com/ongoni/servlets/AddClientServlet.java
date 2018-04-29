@@ -1,7 +1,8 @@
 package com.ongoni.servlets;
 
+import com.ongoni.dao.DAOInstanceHolder;
 import com.ongoni.entities.Client;
-import com.ongoni.dao.ClientHandler;
+import com.ongoni.dao.json.ClientJsonDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +14,14 @@ public class AddClientServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ClientHandler.clients.add(new Client(
+        DAOInstanceHolder.h2Dao.AddClient(
+        /*DAOInstanceHolder.jsonDao.AddClient(*/new Client(
                 Client.getNextAllowedId(),
                 req.getParameter("name"),
                 req.getParameter("password"),
                 req.getParameter("bank"),
                 Double.parseDouble(req.getParameter("balance"))
         ));
-
-        ClientHandler.SaveClients();
 
         resp.sendRedirect("all");
     }
