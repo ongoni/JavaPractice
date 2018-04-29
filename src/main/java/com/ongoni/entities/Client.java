@@ -2,8 +2,6 @@ package com.ongoni.entities;
 
 public class Client {
 
-    protected static int lastId = 0;
-
     protected int id;
     protected String name;
     protected String password;
@@ -12,20 +10,19 @@ public class Client {
 
     public Client() { }
 
-    public Client(int id, String name, String password, String bankAccountNumber, double bankAccountBalance) {
-        this.id = id;
+    public Client(String name, String password, String bankAccountNumber, double bankAccountBalance) {
         this.name = name;
         this.password = password;
         this.bankAccountNumber = bankAccountNumber;
         this.bankAccountBalance = bankAccountBalance;
     }
 
-    public static int getNextAllowedId() {
-        return ++lastId;
-    }
-
-    public static void setLastId(int value) {
-        lastId = value;
+    public Client(int id, String name, String password, String bankAccountNumber, double bankAccountBalance) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.bankAccountNumber = bankAccountNumber;
+        this.bankAccountBalance = bankAccountBalance;
     }
 
     public int getId() {

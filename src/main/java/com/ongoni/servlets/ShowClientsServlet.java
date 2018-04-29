@@ -15,7 +15,6 @@ public class ShowClientsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.setAttribute("clients", DAOInstanceHolder.jsonDao.getClients());
         req.setAttribute("clients", DAOInstanceHolder.h2Dao.getClients());
-        req.setAttribute("lastId", Client.getNextAllowedId());
         req.getRequestDispatcher("/showClients.jsp").forward(req, resp);
     }
 

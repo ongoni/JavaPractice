@@ -1,6 +1,7 @@
 package com.ongoni.dao.database;
 
 import com.ongoni.dao.ClientDAO;
+import com.ongoni.dao.DAOInstanceHolder;
 import com.ongoni.entities.Client;
 
 import java.io.FileInputStream;
@@ -34,12 +35,11 @@ public class ClientH2DAO implements ClientDAO {
             ex.printStackTrace();
         }
     }
-
     private void createClientTable() {
         try(Connection connection = DriverManager.getConnection(url, username, password)) {
             Statement createTableStatement = connection.createStatement();
             createTableStatement.executeUpdate(
-                    "create table if not exists item ("
+                    "create table if not exists client ("
                             + "id int auto_increment not null,"
                             + "`name` varchar(50) not null,"
                             + "password varchar(100) not null,"
@@ -59,13 +59,14 @@ public class ClientH2DAO implements ClientDAO {
         try(Connection connection = DriverManager.getConnection(url, username, password)) {
             ResultSet resultSet = connection
                     .createStatement()
-                    .executeQuery("select * from item");
+                    .executeQuery("select * from client");
 
             while (resultSet.next()) {
                 clients.add(
                         new Client()
                                 .setId(resultSet.getInt("id"))
                                 .setName(resultSet.getString("name"))
+                                .setPassword(resultSet.getString("password"))
                                 .setBankAccountNumber(resultSet.getString("bank_account"))
                                 .setBankAccountBalance(resultSet.getDouble("balance"))
                 );
@@ -83,8 +84,7 @@ public class ClientH2DAO implements ClientDAO {
             connection
                     .createStatement()
                     .executeUpdate(
-                            "insert into item values("
-                                    + client.getId() + ", "
+                            "insert into client(`name`, password, bank_account, balance) values("
                                     + client.getName() + ", "
                                     + client.getPassword() + ", "
                                     + client.getBankAccountNumber() + ", "

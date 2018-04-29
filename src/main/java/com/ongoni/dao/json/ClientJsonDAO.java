@@ -16,6 +16,8 @@ import java.util.Objects;
 
 public class ClientJsonDAO implements ClientDAO {
 
+    protected static int lastId = 0;
+
     private static List<Client> clients;
 
     private static File DEFAULT_FILE;
@@ -35,7 +37,7 @@ public class ClientJsonDAO implements ClientDAO {
                 );
 
         if (!clients.isEmpty()) {
-            Client.setLastId(
+            setLastId(
                     ClientJsonDAO.clients.stream()
                             .max(Comparator.comparingInt(Client::getId))
                             .get()
@@ -43,8 +45,16 @@ public class ClientJsonDAO implements ClientDAO {
             );
         } else {
             ClientJsonDAO.clients = new ArrayList<>();
-            Client.setLastId(0);
+            setLastId(0);
         }
+    }
+
+    private static int getNextAllowedId() {
+        return ++lastId;
+    }
+
+    private static void setLastId(int value) {
+        lastId = value;
     }
 
     public List<Client> getClients() {
@@ -56,7 +66,7 @@ public class ClientJsonDAO implements ClientDAO {
             return;
         }
 
-        clients.add(client);
+        clients.add(client.setId(getNextAllowedId()));
 
         FileWriter.write(
                 new GsonBuilder()

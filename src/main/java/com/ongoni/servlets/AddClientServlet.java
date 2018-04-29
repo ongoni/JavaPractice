@@ -16,7 +16,6 @@ public class AddClientServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DAOInstanceHolder.h2Dao.AddClient(
         /*DAOInstanceHolder.jsonDao.AddClient(*/new Client(
-                Client.getNextAllowedId(),
                 req.getParameter("name"),
                 req.getParameter("password"),
                 req.getParameter("bank"),
